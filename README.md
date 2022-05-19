@@ -1,4 +1,4 @@
-# IT461---Competence
+# IT461 Group Project
 
 ### Members:
 
