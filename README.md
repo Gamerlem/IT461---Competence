@@ -6,7 +6,7 @@
 
 * Co, Peterson Anjunie N.
   
-* Dacuyan, Wesly Ryan Y.
+* Dacuyan, Wesley Ryan Y.
   
 * Kandt, Jeremy Giles M. 
 
