@@ -1,5 +1,8 @@
 # IT461 Group Project
 
+### Tentative Presentation Date
+* June 11, 2022
+
 ### Members
 * Alvarez, Lhora Mae C.
 * Co, Peterson Anjunie N.  
@@ -21,4 +24,5 @@
 * Creation of users will only be done in the backend.
 * Only manufacturers can create a robot.
 * Only the manufacturers of certain robots are allowed to view, update and delete said robot.
+
 
