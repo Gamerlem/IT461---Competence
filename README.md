@@ -21,4 +21,4 @@
 * Creation of users will only be done in the backend.
 * Only manufacturers can create a robot.
 * Only the manufacturers of certain robots are allowed to view, update and delete said robot.
-* Unregistered users can view all the manufactured robots listed by all manufacturers.
+
