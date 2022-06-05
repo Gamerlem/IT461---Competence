@@ -6,11 +6,13 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { HiPlusSm } from "react-icons/hi";
+import CardList from "./Cardlist";
+import { robots } from "../robots";
 
 
 const Landing = () => {
     return(
-        <Container fluid className="w-75 mt-4">
+        <Container fluid className="w-75 mt-3">
             <Row>
                 <Col lg={6} md={12} sm={12}>
                     <h1 className="label">Your Robots for Hire</h1>
@@ -25,6 +27,7 @@ const Landing = () => {
                     </div>
                 </Col>
             </Row>
+            <CardList robots = {robots} />
         </Container>
     );
 }

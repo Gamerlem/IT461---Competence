@@ -4,21 +4,16 @@ import { HiOutlineSearch } from "react-icons/hi";
 
 const SearchBox = () => {
     return(
-
-            <div className="search-container">
-                <div className="search">
-                    <input 
-                        className = "searchbox" 
-                        type = 'search' 
-                        placeholder ="search"
-                    />
-                </div>
-                <HiOutlineSearch className="search-icon"/>
+        <div className="search-container">
+            <div className="search">
+                <input 
+                    className = "searchbox" 
+                    type = 'search' 
+                    placeholder ="search"
+                />
             </div>
-           
-        
-        
-        
+            <HiOutlineSearch className="search-icon"/>
+        </div>
     );
 }
 

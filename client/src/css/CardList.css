@@ -1,0 +1,24 @@
+.card-container{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-row-gap: 1em;
+    justify-content: center;
+}
+
+@media (max-width: 1500px) {
+    .card-container{
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-row-gap: 1em;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 940px) {
+    .card-container{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 1em;
+        justify-content: center;
+    }
+}
