@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import useAxiosPrivate from './hooks/useAxiosPrivate';
 import Home from './components/Home';
 import Layout from './components/Layout';
+import Login from './components/Login';
 
 const ROLES = {
   'User': 2001,
@@ -69,7 +70,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         {/* public routes */}
         <Route path="/" element={<Home />} />
-        {/* <Route path="login" element={<Login />} /> */}
+        <Route path="login" element={<Login />} />
 
         {/* we want to protect these routes */}
         <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
