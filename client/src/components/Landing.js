@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import { HiPlusSm } from "react-icons/hi";
 import CardList from "./Cardlist";
 import { robots } from "../robots";
+import { Link } from 'react-router-dom';
 
 
 const Landing = () => {
@@ -19,10 +20,12 @@ const Landing = () => {
                 </Col>
                 <Col className="m-auto" lg={6} md={12} sm={12}>
                     <div className="action-container">
-                        <button className="bn37">
-                            <span className="btn-text">Create</span>
-                            <HiPlusSm className="add-icon"/>
-                        </button>
+                        <Link to ="/createBot">
+                            <button className="bn37">
+                                <span className="btn-text">Create</span>
+                                <HiPlusSm className="add-icon"/>
+                            </button>
+                        </Link>
                         <SearchBox />
                     </div>
                 </Col>
