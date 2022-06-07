@@ -6,6 +6,7 @@ import useAxiosPrivate from './hooks/useAxiosPrivate';
 import Home from './components/Home';
 import Layout from './components/Layout';
 import RobotAdd from './components/RobotAdd';
+import RobotEdit from './components/RobotEdit';
 
 const ROLES = {
   'User': 2001,
@@ -87,6 +88,7 @@ function App() {
 
         { <Route element={<RequireAuth allowedRoles={[ROLES.Manufacturer]} />}>
           <Route path="/createBot" element={<RobotAdd />} />
+          <Route path="/editBot" element={<RobotEdit />} />
         </Route> }
 
         {/* catch all */}
