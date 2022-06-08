@@ -2,22 +2,22 @@ import './RobotView.css'
 
 const RobotView = () => {
     return (
-        <div class='container'>
-            <span class='col'>
-                <div class='img-container'>
-                    <p class='id-txt'><strong>ID#231</strong></p>
-                    <img class='robot-img' src='https://robohash.org/1' alt=''/>
+        <div className='container'>
+            <span className='col'>
+                <div className='img-container'>
+                    <p className='id-txt'><strong>ID#231</strong></p>
+                    <img className='robot-img' src='https://robohash.org/1' alt=''/>
                 </div>
-                <div class='info-container'>
-                    <div class='info-txt'>
-                        <h1 class='robot-name'>RoboPrim</h1>
-                        <hr class='underline' />
+                <div className='info-container'>
+                    <div className='info-txt'>
+                        <h1 className='robot-name'>RoboPrim</h1>
+                        <hr className='underline' />
                         <br/>
-                        <p class='txt_1'>Manufacturer : Lhora</p>
-                        <p class='txt_2'><em>Created : June 06, 2022 | Updated : June 06, 2022</em></p>
+                        <p className='txt_1'>Manufacturer : Lhora</p>
+                        <p className='txt_2'><em>Created : June 06, 2022 | Updated : June 06, 2022</em></p>
                         <br/>
-                        <p class='txt_1'>Capabilities :</p>
-                        <p class='txt_2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p className='txt_1'>Capabilities :</p>
+                        <p className='txt_2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                 </div>
             </span>
