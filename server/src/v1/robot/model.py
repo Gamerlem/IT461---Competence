@@ -21,8 +21,8 @@ class RobotModel():
             return False
         queries = []
         for robot in clean_robots:
-            sql = "INSERT INTO robots(robotname,password) VALUES(%s,%s)"
-            queries.append({"sql": sql, "bind": (robot['robotname'], robot['password'])})
+            sql = "INSERT INTO robots(robotname,capabilities,created,updated,createdby) VALUES(%s,%s,%s,%s,%s)"
+            queries.append({"sql": sql, "bind": (robot['robotname'], robot['capabilities'], robot['created'], robot['updated'], robot['createdby'])})
         db = Db.get_instance()
         result = db.transactional(queries)
         return robots
@@ -36,7 +36,7 @@ class RobotModel():
             if 'fields' in filters:
                 tmp_fields = []
                 for field in filters['fields']:
-                    if field in ['id', 'robotname', 'password']:
+                    if field in ['id', 'robotname', 'capabilities', 'created', 'updated', 'createdby']:
                         tmp_fields.append(field)
                 if len(tmp_fields) > 0:
                     fields = tmp_fields
@@ -49,9 +49,9 @@ class RobotModel():
             if 'limit' in filters:
                 limit = int(filters['limit'])
             # auth method
-            if 'robotname' and 'password' in filters:
-                sql = "SELECT " + ','.join(fields) + " FROM robots WHERE robotname = %s AND password = %s"
-                robot = db.fetchone(sql, (filters['robotname'], filters['password']))
+            if 'username' and 'password' in filters:
+                sql = "SELECT " + ','.join(fields) + " FROM users WHERE username = %s AND password = %s"
+                robot = db.fetchone(sql, (filters['username'], filters['password']))
                 return robot
         cols = 'COUNT(*) AS total' if count_only else ','.join(fields)
         sql = "SELECT " + cols + " FROM robots"
@@ -71,8 +71,8 @@ class RobotModel():
             return False
         queries = []
         for robot in clean_robots:
-            sql = "UPDATE robots SET robotname = %s, password = %s WHERE id = %s"
-            queries.append({"sql": sql, "bind": (robot['robotname'], robot['password'], robot['id'])})
+            sql = "UPDATE robots SET robotname = %s, capabilities = %s WHERE id = %s"
+            queries.append({"sql": sql, "bind": (robot['robotname'], robot['capabilities'], robot['id'])})
         db = Db.get_instance()
         db.transactional(queries)
         return robots

@@ -14,11 +14,11 @@ INSERT INTO users (username, password) VALUES ('admin', 'admin');
 
 CREATE TABLE robots(
     id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(200) NOT NULL,
+    robotname VARCHAR(200) NOT NULL,
     capabilities VARCHAR(1000) NOT NULL,
-    created datetime NOT NULL,
-    updated datetime NOT NULL,
-    createdby users,
+    created datetime DEFAULT,
+    updated datetime DEFAULT ON UPDATE,
+    FOREIGN KEY (createdby) REFERENCES users(username),
     PRIMARY KEY (id),
     INDEX (name)
 );
