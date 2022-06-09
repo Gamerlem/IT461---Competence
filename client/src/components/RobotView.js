@@ -1,6 +1,6 @@
 import { Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import './RobotView.css';
+import '../css/RobotView.css';
 
 const RobotView = () => {
     return (
@@ -17,7 +17,7 @@ const RobotView = () => {
                     <h1>Your Robot for Hire</h1>
                 </Col>
             </Row>
-            <Container className='container'>
+            <Container className='container-robot'>
                 <span className='col'>
                     <div className='img-container'>
                         <p className='id-txt'><strong>ID#231</strong></p>
