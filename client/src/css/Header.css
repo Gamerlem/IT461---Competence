@@ -30,7 +30,7 @@
     margin: 0 2rem 0 auto;
     display: grid;
     grid-area: nav;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(5, auto);
     grid-column-gap: 1.5rem;
     align-items: center;
     justify-items: center;

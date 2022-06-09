@@ -8,6 +8,7 @@ import RobotAdd from './components/RobotAdd';
 import RobotView from './components/RobotView';
 import RobotEdit from './components/RobotEdit';
 import RobotDelete from './components/RobotDelete';
+import Login from './components/Login';
 
 const ROLES = {
   'User': 2001,
@@ -23,27 +24,27 @@ function App() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // const getDogs = async (url, options = null) => {
-  //   setUrl(url);
-  //   try {
-  //       const response = await axiosPrivate.get(url, options);
-  //       console.log(response.data);
-  //       setDogs(response.data);
-  //   } catch (err) {
-  //       console.error(err);
-  //       navigate('/login', { state: { from: location }, replace: true });
-  //   }
-  // }
+  const getDogs = async (url, options = null) => {
+    setUrl(url);
+    try {
+        const response = await axiosPrivate.get(url, options);
+        console.log(response.data);
+        setDogs(response.data);
+    } catch (err) {
+        console.error(err);
+        navigate('/login', { state: { from: location }, replace: true });
+    }
+  }
 
-  // useEffect(() => {
-  //     const controller = new AbortController();
-  //     getDogs(url, {
-  //         signal: controller.signal
-  //     });
-  //     return () => {
-  //         controller.abort();
-  //     }
-  // }, []);
+  useEffect(() => {
+      const controller = new AbortController();
+      getDogs(url, {
+          signal: controller.signal
+      });
+      return () => {
+          controller.abort();
+      }
+  }, []);
 
   // const dogAddHandler = async ({name}) => {
   //   console.log('DOG: ', name);
@@ -75,8 +76,8 @@ function App() {
         <Route path="robots/view" element={<RobotView />} />
         <Route path="robots/add" element={<RobotAdd />} />
         <Route path="robots/edit" element={<RobotEdit />} />
-        <Route path="robots/del" element={<RobotDelete />} />
-        {/* <Route path="login" element={<Login />} /> */}
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="login" element={<Login />} />
 
         {/* we want to protect these routes */}
         <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>

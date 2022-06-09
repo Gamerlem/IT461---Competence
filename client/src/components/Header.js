@@ -1,13 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import "../css/Header.css";
 import { CSSTransition } from "react-transition-group";
 import { FcDatabase } from 'react-icons/fc';
+import useAuth from '../hooks/useAuth';
 
-const Header = () => {
+
+const Header = ({logout}) => {
   const [isNavVisible, setNavVisibility] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const { auth, setAuth } = useAuth();
+
+  let button;
+  let navName;
+
+  if(auth.user){
+    console.log(auth);
+    console.log("true");
+    button = <span className="bn31span">Sign out</span>;
+    navName=<a>{auth.user}</a>
+  }else{
+    console.log("false");
+    button = <span className="bn31span">Sign in</span>;
+    navName=<a></a>
+  }
 
   useEffect(() => {
+    console.log(auth);
     const mediaQuery = window.matchMedia("(max-width: 700px)");
     mediaQuery.addListener(handleMediaQueryChange);
     handleMediaQueryChange(mediaQuery);
@@ -45,7 +63,10 @@ const Header = () => {
                 <a href="/">Home</a>
                 <a href="/">About</a>
                 <a href="/">Contact Us</a>
-                <button className="bn31"><span className="bn31span">Sign in</span></button>
+                {navName}
+                <button className="bn31" onClick={logout}>
+                  {button}
+                </button>
             </nav>
         </CSSTransition>
         
