@@ -8,7 +8,7 @@ class RobotModel():
         for robot in robots:
             if not isinstance(robot, dict):
                 continue
-            if not ('id' in robot and 'robotname' in robot and 'password' in robot):
+            if not ('robotname' in robot and 'capabilities' in robot):
                 continue
             clean_robots.append(robot)
         return clean_robots
@@ -21,8 +21,8 @@ class RobotModel():
             return False
         queries = []
         for robot in clean_robots:
-            sql = "INSERT INTO robots(robotname,capabilities,created,createdby,updated) VALUES(%s,%s,%s,%s,%s)"
-            queries.append({"sql": sql, "bind": (robot['robotname'], robot['capabilities'], robot['created'],robot['createdby'], robot['updated'])})
+            sql = "INSERT INTO robots(robotname,capabilities,createdby) VALUES(%s,%s,%s)"
+            queries.append({"sql": sql, "bind": (robot['robotname'], robot['capabilities'], robot['createdby'])})
         db = Db.get_instance()
         result = db.transactional(queries)
         return robots
