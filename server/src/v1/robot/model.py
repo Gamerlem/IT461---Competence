@@ -48,11 +48,6 @@ class RobotModel():
                 offset = int(filters['offset'])
             if 'limit' in filters:
                 limit = int(filters['limit'])
-            # auth method
-            if 'username' and 'password' in filters:
-                sql = "SELECT " + ','.join(fields) + " FROM users WHERE username = %s AND password = %s"
-                robot = db.fetchone(sql, (filters['username'], filters['password']))
-                return robot
         cols = 'COUNT(*) AS total' if count_only else ','.join(fields)
         sql = "SELECT " + cols + " FROM robots"
         if not count_only:

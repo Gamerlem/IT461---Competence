@@ -1,15 +1,24 @@
 @host = http://127.0.0.1:8080/v1/robots
 
 
-GET {{host}}/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjEwMCwiZXhwIjoxNjU0ODcwODY4fQ.VTnTiZjU1VNbXMY1AtHTGj8ehQ-eWDWRZCRmOh7jzVQ HTTP/1.1
+GET {{host}}/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjEwMCwiZXhwIjoxNjU0ODcxODQ5fQ.qz2LLLWfT5BO23ki3tJn70IofHHPnBujLaZyyT7zyqw HTTP/1.1
 
 ###
-POST {{host}}/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjEwMCwiZXhwIjoxNjU0ODcwODY4fQ.VTnTiZjU1VNbXMY1AtHTGj8ehQ-eWDWRZCRmOh7jzVQ HTTP/1.1
+POST {{host}}/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjEwMCwiZXhwIjoxNjU0ODcxODQ5fQ.qz2LLLWfT5BO23ki3tJn70IofHHPnBujLaZyyT7zyqw HTTP/1.1
 Content-Type: application/json
 
 {
-    "id":1,
-    "robotname" : "RoboMel",
-    "capabilities" : "Can sing",
+    "robotname" : "RoboMel2.0",
+    "capabilities" : "Can Dance",
     "createdby" : 1
+}
+
+###
+PUT {{host}}/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjEwMCwiZXhwIjoxNjU0ODcxODQ5fQ.qz2LLLWfT5BO23ki3tJn70IofHHPnBujLaZyyT7zyqw HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "robotname" : "RoboMel2.0",
+    "capabilities" : "Can Dance and Can Sing"
 }
