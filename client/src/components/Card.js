@@ -18,7 +18,7 @@ const Card = ({robot}) => {
                         <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
                     </div>
                     <div className="btn-container">
-                        <a href="#">Edit</a>
+                        <a href="/editBot">Edit</a>
                         <a href="#">Delete</a>
                     </div>
                 </div>

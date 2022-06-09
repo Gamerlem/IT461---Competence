@@ -7,7 +7,7 @@ import Home from './components/Home';
 import Layout from './components/Layout';
 import RobotAdd from './components/RobotAdd';
 import RobotView from './components/RobotView';
-
+import RobotEdit from './components/RobotEdit';
 
 const ROLES = {
   'User': 2001,
@@ -74,6 +74,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="robots/view" element={<RobotView />} />
         <Route path="robots/add" element={<RobotAdd />} />
+        <Route path="robots/edit" element={<RobotEdit />} />
         {/* <Route path="login" element={<Login />} /> */}
 
         {/* we want to protect these routes */}
@@ -91,6 +92,7 @@ function App() {
 
         { <Route element={<RequireAuth allowedRoles={[ROLES.Manufacturer]} />}>
           <Route path="/createBot" element={<RobotAdd />} />
+          <Route path="/editBot" element={<RobotEdit />} />
         </Route> }
 
         {/* catch all */}
