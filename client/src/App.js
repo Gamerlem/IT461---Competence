@@ -17,18 +17,18 @@ const ROLES = {
 
 
 function App() {
-  const [dogs, setDogs] = useState([]);
-  const [url, setUrl] = useState('/dogs/?limit=3&offset=0')
+  const [bots, setBots] = useState([]);
+  const [url, setUrl] = useState('/robots/?limit=6&offset=0')
   const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
   const location = useLocation();
 
-  const getDogs = async (url, options = null) => {
+  const getBots = async (url, options = null) => {
     setUrl(url);
     try {
         const response = await axiosPrivate.get(url, options);
         console.log(response.data);
-        setDogs(response.data);
+        setBots(response.data);
     } catch (err) {
         console.error(err);
         navigate('/login', { state: { from: location }, replace: true });
@@ -37,7 +37,7 @@ function App() {
 
   useEffect(() => {
       const controller = new AbortController();
-      getDogs(url, {
+      getBots(url, {
           signal: controller.signal
       });
       return () => {
@@ -49,29 +49,29 @@ function App() {
     console.log('Robot: ', robot);
     const response = await axiosPrivate.post('/robots/', JSON.stringify(robot))
     console.log(response.data);
-    getDogs(url);
+    getBots(url);
   }
 
-  // const dogUpdateHandler = async (dog) => {
-  //   console.log('DOG: ', dog);
-  //   const response = await axiosPrivate.put('/dogs/', JSON.stringify(dog));
-  //   console.log(response.data);
-  //   getDogs(url);
-  // }
+  const botUpdateHandler = async (robot) => {
+    console.log('Robot: ', robot);
+    const response = await axiosPrivate.put('/robots/', JSON.stringify(robot))
+    console.log(response.data);
+    getBots(url);
+  }
 
-  // const dogdeleteHandler = async (dog) => {
-  //   console.log('DOG: ', dog);
-  //   const response = await axiosPrivate.delete('/dogs/', {data : JSON.stringify(dog.id)});
-  //   console.log(response.data);
-  //   getDogs(url);
-  // }
+  const botdeleteHandler = async (robot) => {
+    console.log('Robot: ', robot);
+    const response = await axiosPrivate.delete('/robots/', {data : JSON.stringify(robot.id)});
+    console.log(response.data);
+    getBots(url);
+  }
 
 
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         {/* public routes */}
-        <Route path="/" element={<Home />} />
+        
         <Route path="robots/view" element={<RobotView />} />
         <Route path="robots/edit" element={<RobotEdit />} />
         {/* <Route path="/" element={<Home />} /> */}
@@ -91,9 +91,9 @@ function App() {
         </Route> */}
 
         { <Route element={<RequireAuth allowedRoles={[ROLES.Manufacturer]} />}>
-          <Route path="robots" element={<Home />} />
+          <Route path="robots" element={<Home robots={bots} getBots={getBots} deleteHandler={botdeleteHandler}/>} />
           <Route path="robots/create" element={<RobotAdd addHandler = {botAddHandler}/>} />
-          <Route path="/editBot" element={<RobotEdit />} />
+          <Route path="robots/edit/:id" element={<RobotEdit updateHandler={botUpdateHandler}/>} />
         </Route> }
 
         {/* catch all */}

@@ -2,10 +2,11 @@ import React from "react";
 import Landing from "./Landing";
 
 
-const Home = () =>{
+
+const Home = ({robots, getBots, deleteHandler}) =>{    
     return(
         <div>
-            <Landing />
+            <Landing bots ={robots} getBots ={getBots} deleteHandler = {deleteHandler}/>
         </div>
     );
 }

@@ -14,12 +14,12 @@ const Header = ({logout}) => {
   let navName;
 
   if(auth.user){
-    console.log(auth);
-    console.log("true");
+    //console.log(auth);
+    // console.log("true");
     button = <span className="bn31span">Sign out</span>;
     navName=<a>{auth.user}</a>
   }else{
-    console.log("false");
+    //console.log("false");
     button = <span className="bn31span">Sign in</span>;
     navName=<a></a>
   }

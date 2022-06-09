@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Modal, Button } from "react-bootstrap";
 import '../css/deleteStyle.css';
  
-const RobotDelete = ({showModal, hideModal}) => {
+const RobotDelete = ({showModal, hideModal,deleteHandler, name}) => {
 
     return (
         <Modal 
@@ -18,14 +18,15 @@ const RobotDelete = ({showModal, hideModal}) => {
             Delete Robot?
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body><div>Are you sure you want to delete <span className = "roboName">RoboPrim</span> ?</div></Modal.Body>
+        <Modal.Body><div>Are you sure you want to delete <span className = "roboName">{name}</span> ?</div></Modal.Body>
         <Modal.Footer>
           <Button variant="cancel" size ="customSize" onClick={hideModal}>
             Cancel
           </Button>
-          <Button variant="delete" size="customSize" onClick={hideModal }>
+          <Button variant="delete" size="customSize" onClick={deleteHandler}>
             Delete
           </Button>
+
         </Modal.Footer>
       </Modal>
     );

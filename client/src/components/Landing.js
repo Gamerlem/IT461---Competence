@@ -7,11 +7,20 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { HiPlusSm } from "react-icons/hi";
 import CardList from "./Cardlist";
-import { robots } from "../robots";
+//import { robots } from "../robots";
 import { Link } from 'react-router-dom';
 
 
-const Landing = () => {
+const Landing = ({bots, getBots, deleteHandler}) => {
+    const paginationHandler = (e) => {
+        
+        e.preventDefault();
+        const name = e.target.getAttribute('data-name');
+        if (name in bots?.metadata?.links) {
+            const url = bots.metadata.links[name];
+            getBots(url);
+        }
+    }
     return(
         <Container fluid className="w-75 mt-3">
             <Row>
@@ -20,7 +29,7 @@ const Landing = () => {
                 </Col>
                 <Col className="m-auto" lg={6} md={12} sm={12}>
                     <div className="action-container">
-                        <Link to ="/createBot">
+                        <Link to ="/robots/create">
                             <button className="bn37">
                                 <span className="btn-text">Create</span>
                                 <HiPlusSm className="add-icon"/>
@@ -30,7 +39,30 @@ const Landing = () => {
                     </div>
                 </Col>
             </Row>
-            <CardList robots = {robots} />
+            
+            {bots?.data?.length
+                ? (
+                    <>
+                   <CardList robots = {bots} deleteHandler = {deleteHandler} />
+                    {bots?.metadata?.links?.previous ? 
+                        <a
+                            href="#"
+                            data-name="previous"
+                            onClick={paginationHandler}
+                        > &lsaquo;Previous </a>
+                        : ''
+                    }
+                    {bots?.metadata?.links?.next ? 
+                        <a
+                            href="#"
+                            data-name="next"
+                            onClick={paginationHandler}
+                        > Next&rsaquo; </a>
+                        : ''
+                    }
+                    </>
+                ) : <p>No robots to display</p>
+            }
         </Container>
     );
 }

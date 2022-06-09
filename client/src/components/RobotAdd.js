@@ -5,6 +5,24 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 const RobotAdd = ({addHandler}) => {
+    
+    const [name, setName] = useState('');
+    const [cap, setCap] = useState('');
+    const createdby = 1;
+    const navigate = useNavigate();
+    const formHandler = (e) => {
+        e.preventDefault();
+        if (!name) {
+            alert("Name is required!");
+            return;
+        }
+        if (!cap ) {
+            alert("Capabilities are required!");
+            return;
+        }
+        addHandler({id:0, robotname: name, capabilities: cap, createdby: createdby});
+        navigate('/robots');
+    }
 
     return (
         <div>
@@ -21,7 +39,7 @@ const RobotAdd = ({addHandler}) => {
                         <h1 className="label">Your Robot for Hire</h1>
                     </Col>
                 </Row>
-                <Form>
+                <Form onSubmit = {formHandler}>
                     <Row className='border-gradient'>
                         <Col className="m-auto p-0" lg={5} md={5} sm={12}>
                             <div className='container'>
@@ -44,11 +62,11 @@ const RobotAdd = ({addHandler}) => {
                         <Col className="m-auto text-white form-container" lg={7} md={7} sm={12}>
                             <Form.Group as={Row} className='mb-3'>
                                 <Form.Label className='text-left p-0'>Name</Form.Label>
-                                <Form.Control type="text" name='name'/>
+                                <Form.Control type="text" name='name' onChange={(e)=>{setName(e.target.value)}}/>
                             </Form.Group>
                             <Form.Group as={Row} className='mb-3'>
                                 <Form.Label className='text-left p-0'>Capabilities</Form.Label>
-                                <Form.Control as="textarea" rows={3} name='capabilities'/>
+                                <Form.Control as="textarea" rows={3} name='capabilities' onChange={(e)=>{setCap(e.target.value)}}/>
                             </Form.Group>
                         </Col>
                     </Row>

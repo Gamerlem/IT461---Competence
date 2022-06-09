@@ -2,11 +2,17 @@ import {useState} from "react";
 import "../css/Card.css"
 import 'bootstrap/dist/css/bootstrap.css';
 import RobotDelete from "./RobotDelete";
+import { Link } from "react-router-dom";
 
-const Card = ({robot}) => {
+const Card = ({robot, deleteHandler}) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const deleteBot = () =>{
+        deleteHandler(robot);
+        handleClose();
+    }
 
     return(
         <div className="container">
@@ -15,21 +21,21 @@ const Card = ({robot}) => {
                     <img alt="robot" src={`https://robohash.org/${robot.id}`}/>
                 </div>
                 <div className="contentBx">
-                    <h2 className="robot-name">{robot.name}</h2>
+                    <h2 className="robot-name">{robot.robotname}</h2>
                     <div className="size">
-                        <h3>September 10, 2022</h3>
+                        <h3>{robot.created}</h3>
                     </div>
                     <div className="color">
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
+                        <h3>{robot.capabilities}</h3>
                     </div>
                     <div className="btn-container">
-                        <a href="/editBot">Edit</a>
+                        <Link to={'/robots/edit/${robot.id}'} state={{robot}}> Edit </Link>
                         {/* <button onClick={handleShow}>Delete</button> */}
                         <a href="#" className="a-bot" onClick={handleShow}>Delete</a>
                     </div>
                 </div>
             </div>
-            <RobotDelete showModal = {show} hideModal={handleClose}/>
+            <RobotDelete showModal = {show} hideModal={handleClose} deleteHandler={deleteBot} name = {robot.name}/>
         </div>
     );
 }
