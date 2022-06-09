@@ -1,9 +1,11 @@
 import '../css/RobotAdd.css'
 import Header from './Header';
 import { Row, Col, Container, Form } from "react-bootstrap"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
-const RobotAdd = () => {
+const RobotAdd = ({addHandler}) => {
+
     return (
         <div>
             <Container fluid className="w-75 mt-3">

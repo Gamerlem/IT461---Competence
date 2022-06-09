@@ -36,6 +36,7 @@ class RobotController(BaseController):
             if not isinstance(robot, dict):
                 return robot
             return jsonify(robot)
+        
         filters['offset'] = int(request.args['offset']) if 'offset' in request.args else 0
         filters['limit'] = int(request.args['limit']) if 'limit' in request.args else 5
         robots = self._instance.read(filters)

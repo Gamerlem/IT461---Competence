@@ -7,7 +7,6 @@ import Layout from './components/Layout';
 import RobotAdd from './components/RobotAdd';
 import RobotView from './components/RobotView';
 import RobotEdit from './components/RobotEdit';
-import RobotDelete from './components/RobotDelete';
 import Login from './components/Login';
 
 const ROLES = {
@@ -46,12 +45,12 @@ function App() {
       }
   }, []);
 
-  // const dogAddHandler = async ({name}) => {
-  //   console.log('DOG: ', name);
-  //   const response = await axiosPrivate.post('/dogs/', JSON.stringify({id: 0, name}))
-  //   console.log(response.data);
-  //   getDogs(url);
-  // }
+  const botAddHandler = async (robot) => {
+    console.log('Robot: ', robot);
+    const response = await axiosPrivate.post('/robots/', JSON.stringify(robot))
+    console.log(response.data);
+    getDogs(url);
+  }
 
   // const dogUpdateHandler = async (dog) => {
   //   console.log('DOG: ', dog);
@@ -74,7 +73,6 @@ function App() {
         {/* public routes */}
         <Route path="/" element={<Home />} />
         <Route path="robots/view" element={<RobotView />} />
-        <Route path="robots/add" element={<RobotAdd />} />
         <Route path="robots/edit" element={<RobotEdit />} />
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="login" element={<Login />} />
@@ -93,7 +91,8 @@ function App() {
         </Route> */}
 
         { <Route element={<RequireAuth allowedRoles={[ROLES.Manufacturer]} />}>
-          <Route path="/createBot" element={<RobotAdd />} />
+          <Route path="robots" element={<Home />} />
+          <Route path="robots/create" element={<RobotAdd addHandler = {botAddHandler}/>} />
           <Route path="/editBot" element={<RobotEdit />} />
         </Route> }
 

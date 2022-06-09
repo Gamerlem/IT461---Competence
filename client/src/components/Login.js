@@ -56,7 +56,7 @@ const Login = () =>{
             if (!accessToken) {
                 throw new Error('Access token not found.');
             }
-            const userLogin = { user: 2001, pwd, accessToken };
+            const userLogin = { user: user, pwd, accessToken };
             setAuth(userLogin);
             keepLogin(userLogin);
             setUser('');
@@ -119,7 +119,7 @@ const Login = () =>{
                     </div>
                     
 
-                   <button className="sign-in">Sign In</button> 
+                   <button className="sign-in" state={user}>Sign In</button> 
                 </div>
                 
             </form>
