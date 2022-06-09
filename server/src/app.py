@@ -1,7 +1,5 @@
 import json
 from flask import Flask, request, jsonify, g
-#from v1.dog.router import DogRouter
-#from v1.cat.router import CatRouter
 from v1.user.router import UserRouter
 from v1.robot.router import RobotRouter
 from v1.auth import login as auth_login, verify_token as auth_verify_token
@@ -17,8 +15,6 @@ CORS(app, resources={r"*": {"origins": [
     'http://localhost:3000',
 ]}},  supports_credentials=True)
 
-#app.register_blueprint(DogRouter.handler())
-#app.register_blueprint(CatRouter.handler())
 app.register_blueprint(UserRouter.handler())
 app.register_blueprint(RobotRouter.handler())
 

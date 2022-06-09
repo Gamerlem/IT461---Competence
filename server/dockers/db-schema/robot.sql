@@ -16,9 +16,10 @@ CREATE TABLE robots(
     id INT NOT NULL AUTO_INCREMENT,
     robotname VARCHAR(200) NOT NULL,
     capabilities VARCHAR(1000) NOT NULL,
-    created datetime DEFAULT,
-    updated datetime DEFAULT ON UPDATE,
-    FOREIGN KEY (createdby) REFERENCES users(username),
+    createdby INT,
+    created DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (createdby) REFERENCES users(id),
     PRIMARY KEY (id),
-    INDEX (name)
+    INDEX (robotname)
 );

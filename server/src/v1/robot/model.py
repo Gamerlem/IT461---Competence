@@ -21,8 +21,8 @@ class RobotModel():
             return False
         queries = []
         for robot in clean_robots:
-            sql = "INSERT INTO robots(robotname,capabilities,created,updated,createdby) VALUES(%s,%s,%s,%s,%s)"
-            queries.append({"sql": sql, "bind": (robot['robotname'], robot['capabilities'], robot['created'], robot['updated'], robot['createdby'])})
+            sql = "INSERT INTO robots(robotname,capabilities,created,createdby,updated) VALUES(%s,%s,%s,%s,%s)"
+            queries.append({"sql": sql, "bind": (robot['robotname'], robot['capabilities'], robot['created'],robot['createdby'], robot['updated'])})
         db = Db.get_instance()
         result = db.transactional(queries)
         return robots
