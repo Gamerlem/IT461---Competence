@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap');
+
+
+.modal-content{
+    font-family: 'Open Sans', sans-serif;
+    background-color:#736BFF;
+    color: #FFFFFF;
+    border: 3px solid #183581;
+    border-radius: 30px;
+    /* background-image: linear-gradient(#272635,#272635), 
+                      linear-gradient(to right, #F44B89, #736BFF);
+    background-origin: border-box;
+    background-clip: content-box, border-box; */
+}
+
+
+
+.modal-header {
+    border-bottom: 0 none;
+    padding: 1.15rem;
+    padding-bottom: 0.5rem;
+}
+
+.modal-title {
+    width: -webkit-fill-available;
+}
+
+.modal-body {
+    padding: 0.5rem;
+    padding-left: 5rem;
+}
+
+.modal-footer {
+    border-top: 0 none;
+    padding: 0.5rem;
+    padding-bottom: 1rem;
+    padding-right: 1rem;
+}
+
+.btn-cancel {
+    border-color: #F44B89;
+    color: white;
+    border-radius: 1rem;
+}
+
+.btn-delete {
+    background-color: #F44B89;
+    color: white;
+    border-radius: 1rem;
+}
+
+.btn-cancel:hover {
+    color:#F44B89;
+}
+
+.btn-customSize {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: .75rem;
+}
+
+.responsive {
+    width: 100%;
+    max-width: 80px;
+    height: auto;
+    padding-right: 0.5rem;
+}
+
+.roboName {
+    font-weight: 700;
+    color: #25164F;
+}
