@@ -6,6 +6,8 @@ import useAxiosPrivate from './hooks/useAxiosPrivate';
 import Home from './components/Home';
 import Layout from './components/Layout';
 import RobotAdd from './components/RobotAdd';
+import RobotView from './components/RobotView';
+
 
 const ROLES = {
   'User': 2001,
@@ -70,11 +72,12 @@ function App() {
       <Route path="/" element={<Layout />}>
         {/* public routes */}
         <Route path="/" element={<Home />} />
+        <Route path="robots/view" element={<RobotView />} />
         {/* <Route path="login" element={<Login />} /> */}
 
         {/* we want to protect these routes */}
         <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
-          <Route path="/" element={<Home />} />
+          {/* <Route path="robots/view" element={<RobotView />} /> */}
         </Route>
 
         {/* <Route element={<RequireAuth allowedRoles={[ROLES.Manufacturer]} />}>
