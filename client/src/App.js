@@ -73,6 +73,7 @@ function App() {
         {/* public routes */}
         <Route path="/" element={<Home />} />
         <Route path="robots/view" element={<RobotView />} />
+        <Route path="robots/add" element={<RobotAdd />} />
         {/* <Route path="login" element={<Login />} /> */}
 
         {/* we want to protect these routes */}
