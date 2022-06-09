@@ -4,10 +4,8 @@ import { Row, Col, Container, Form } from "react-bootstrap"
 import { Link } from 'react-router-dom';
 
 const RobotAdd = () => {
-    
     return (
         <div>
-            <Header />
             <Container fluid className="w-75 mt-3">
                 <Row className='mb-3'>
                     <Col className="p-0" lg={12} md={12} sm={12}>
