@@ -7,7 +7,7 @@ class Db():
     port = "3306"
     username = "root"
     password = "root"
-    database = "pets"
+    database = "robots"
 
     def __init__(self):
         if Db.__instance is not None:
