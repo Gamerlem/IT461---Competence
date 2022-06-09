@@ -5,7 +5,9 @@ import { useEffect, useState } from 'react';
 import useAxiosPrivate from './hooks/useAxiosPrivate';
 import Home from './components/Home';
 import Layout from './components/Layout';
+import RobotAdd from './components/RobotAdd';
 import RobotView from './components/RobotView';
+
 
 const ROLES = {
   'User': 2001,
@@ -85,6 +87,10 @@ function App() {
           <Route path="/dogs/edit/:id" element={<DogEdit updateHandler={dogUpdateHandler}/>} />
           <Route path="/dogs/delete/:id" element={<DogDelete deleteHandler={dogdeleteHandler}/>} />
         </Route> */}
+
+        { <Route element={<RequireAuth allowedRoles={[ROLES.Manufacturer]} />}>
+          <Route path="/createBot" element={<RobotAdd />} />
+        </Route> }
 
         {/* catch all */}
         {/* <Route path="*" element={<Missing />} /> */}
