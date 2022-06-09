@@ -1,4 +1,3 @@
-
 import RequireAuth from './components/RequireAuth';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -8,6 +7,7 @@ import Layout from './components/Layout';
 import RobotAdd from './components/RobotAdd';
 import RobotView from './components/RobotView';
 import RobotEdit from './components/RobotEdit';
+import RobotDelete from './components/RobotDelete';
 
 const ROLES = {
   'User': 2001,
@@ -75,6 +75,7 @@ function App() {
         <Route path="robots/view" element={<RobotView />} />
         <Route path="robots/add" element={<RobotAdd />} />
         <Route path="robots/edit" element={<RobotEdit />} />
+        <Route path="robots/del" element={<RobotDelete />} />
         {/* <Route path="login" element={<Login />} /> */}
 
         {/* we want to protect these routes */}

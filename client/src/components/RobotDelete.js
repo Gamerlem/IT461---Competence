@@ -1,8 +1,8 @@
 import React from 'react'
 import { Modal, Button } from "react-bootstrap";
-import './deleteStyle.css';
+import '../css/deleteStyle.css';
  
-const DeleteRobot = ({showModal, hideModal}) => {
+const RobotDelete = ({showModal, hideModal}) => {
 
     return (
         <Modal 
@@ -14,7 +14,7 @@ const DeleteRobot = ({showModal, hideModal}) => {
         >
         <Modal.Header >
           <Modal.Title>
-            <img src={require('./warning.png')} alt="warning" className="responsive"/>
+            <img src={require('../assets/warning.png')} alt="warning" className="responsive"/>
             Delete Robot?
           </Modal.Title>
         </Modal.Header>
@@ -32,4 +32,4 @@ const DeleteRobot = ({showModal, hideModal}) => {
 
 }
  
-export default DeleteRobot;
+export default RobotDelete;

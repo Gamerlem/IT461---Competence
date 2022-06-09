@@ -1,8 +1,13 @@
-import React from "react";
+import {useState} from "react";
 import "../css/Card.css"
 import 'bootstrap/dist/css/bootstrap.css';
+import RobotDelete from "./RobotDelete";
 
 const Card = ({robot}) => {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return(
         <div className="container">
             <div className="card">
@@ -19,10 +24,12 @@ const Card = ({robot}) => {
                     </div>
                     <div className="btn-container">
                         <a href="/editBot">Edit</a>
-                        <a href="#">Delete</a>
+                        {/* <button onClick={handleShow}>Delete</button> */}
+                        <a href="#" className="a-bot" onClick={handleShow}>Delete</a>
                     </div>
                 </div>
             </div>
+            <RobotDelete showModal = {show} hideModal={handleClose}/>
         </div>
     );
 }
