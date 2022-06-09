@@ -35,6 +35,7 @@ const Login = () =>{
     }, [user, pwd])
 
     const handleSubmit = async (e) => {
+        console.log("submit");
         e.preventDefault();
 
         try {
@@ -80,52 +81,53 @@ const Login = () =>{
         <div>
             <Header />
             <section>
+            <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
             <p  aria-live="assertive"></p>
-            <h1 class="title">Sign In As</h1>
-            <div class="button b2" id="button-10">
-                <input type="checkbox" class="checkbox" />
-                <div class="knobs">
+            <h1 className="title">Sign In As</h1>
+            <div className="button b2" id="button-10">
+                <input type="checkbox" className="checkbox" />
+                <div className="knobs">
                     <span>Manufacturer</span>
                 </div>
-                <div class="layer"></div>
+                <div className="layer"></div>
             </div>
-            <form >
-                <div class="container">
-                    <div class="form-group">
+            <form onSubmit={handleSubmit}>
+                <div className="container">
+                    <div className="form-group">
                     
                         <input
                             type="text"
                             id="username"
-                            //ref={userRef}
+                            ref={userRef}
                             autoComplete="off"
-                            //onChange={(e) => setUser(e.target.value)}
-                            //value={user}
+                            onChange={(e) => setUser(e.target.value)}
+                            value={user}
                             placeholder="Username"
                             required
                         />
                     </div>
 
-                    <div class="form-group">
+                    <div className="form-group">
             
                         <input
                             type="password"
                             id="password"
-                            //onChange={(e) => setPwd(e.target.value)}
-                            //value={pwd}
+                            onChange={(e) => setPwd(e.target.value)}
+                            value={pwd}
                             placeholder="Password"
                             required
                         />
                     </div>
                     
 
-                   <button class="sign-in">Sign In</button> 
+                   <button className="sign-in">Sign In</button> 
                 </div>
                 
             </form>
         
         </section>
-        <div class="robot-pic-container">
-            <img class="robot-pic" src={require("../assets/robot-family.png")}></img>
+        <div className="robot-pic-container">
+            <img className="robot-pic" src={require("../assets/robot-family.png")}></img>
         </div>
         </div>
     );

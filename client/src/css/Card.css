@@ -40,15 +40,16 @@
 
 .container .card:hover .imgBx{
   top: 10%;
-  transform: translateY(0%) rotate(25deg);
+  transform: translateY(0%) rotate(20deg);
+  /* transform: scale(1.2); */
     
 }
 
 .container .card .imgBx img{
   position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-25deg);
+  top: -30%;
+  left: 20%;
+  /* transform: translate(-50%, -50%) rotate(-25deg); */
   width: 200px;
 }
 

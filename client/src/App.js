@@ -21,27 +21,27 @@ function App() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // const getDogs = async (url, options = null) => {
-  //   setUrl(url);
-  //   try {
-  //       const response = await axiosPrivate.get(url, options);
-  //       console.log(response.data);
-  //       setDogs(response.data);
-  //   } catch (err) {
-  //       console.error(err);
-  //       navigate('/login', { state: { from: location }, replace: true });
-  //   }
-  // }
+  const getDogs = async (url, options = null) => {
+    setUrl(url);
+    try {
+        const response = await axiosPrivate.get(url, options);
+        console.log(response.data);
+        setDogs(response.data);
+    } catch (err) {
+        console.error(err);
+        navigate('/login', { state: { from: location }, replace: true });
+    }
+  }
 
-  // useEffect(() => {
-  //     const controller = new AbortController();
-  //     getDogs(url, {
-  //         signal: controller.signal
-  //     });
-  //     return () => {
-  //         controller.abort();
-  //     }
-  // }, []);
+  useEffect(() => {
+      const controller = new AbortController();
+      getDogs(url, {
+          signal: controller.signal
+      });
+      return () => {
+          controller.abort();
+      }
+  }, []);
 
   // const dogAddHandler = async ({name}) => {
   //   console.log('DOG: ', name);
@@ -69,7 +69,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         {/* public routes */}
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} /> */}
         <Route path="login" element={<Login />} />
 
         {/* we want to protect these routes */}

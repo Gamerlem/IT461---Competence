@@ -3,7 +3,7 @@ import "../css/Header.css";
 import { CSSTransition } from "react-transition-group";
 import { FcDatabase } from 'react-icons/fc';
 
-const Header = () => {
+const Header = ({logout}) => {
   const [isNavVisible, setNavVisibility] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -45,7 +45,7 @@ const Header = () => {
                 <a href="/">Home</a>
                 <a href="/">About</a>
                 <a href="/">Contact Us</a>
-                <button className="bn31"><span className="bn31span">Sign in</span></button>
+                <button className="bn31" onClick={logout}><span className="bn31span">Sign in</span></button>
             </nav>
         </CSSTransition>
         
