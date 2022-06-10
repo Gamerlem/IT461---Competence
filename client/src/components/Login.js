@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./Header";
+import { Toast, ToastContainer } from "react-bootstrap";
 import { useRef, useState, useEffect } from 'react';
 import useAuth from '../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
@@ -22,6 +23,7 @@ const Login = () =>{
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
+    
 
     useEffect(() => {
         if (auth?.accessToken) {
@@ -34,9 +36,13 @@ const Login = () =>{
         setErrMsg('');
     }, [user, pwd])
 
+    
+
     const handleSubmit = async (e) => {
         console.log("submit");
         e.preventDefault();
+
+        
 
         try {
             const response = await axios.post(LOGIN_URL,
@@ -78,11 +84,23 @@ const Login = () =>{
             errRef.current.focus();
         }
     }
-
+    
     return(
+        
         <div>
+            <ToastContainer position="top-center">
+            <Toast  onClose={() => setErrMsg(false)} show={errMsg} delay={3000} autohide>
+            <Toast.Header>
+                <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+                <strong className="me-auto">Warning</strong>
+                <small>just now</small>
+            </Toast.Header>
+            <Toast.Body>{errMsg}</Toast.Body>
+            </Toast>
+            </ToastContainer>
             <section>
-            <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+            {/*<Alert variant="light">{errMsg}</Alert>
+            <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>*/}
             <p  aria-live="assertive"></p>
             <h1 className="title">Sign In As</h1>
             <div className="button b2" id="button-10">
@@ -121,7 +139,7 @@ const Login = () =>{
                     </div>
                     
 
-                   <button className="sign-in" state={user}>Sign In</button> 
+                   <button className="sign-in" state={user} onClick={errMsg}>Sign In</button> 
                 </div>
                 
             </form>
