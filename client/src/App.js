@@ -41,7 +41,6 @@ function App() {
 
   useEffect(() => {
     try{
-
       const controller = new AbortController();
       getBots(url, {
           signal: controller.signal
@@ -82,10 +81,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         {/* public routes */}
-        
-        <Route path="robots/view" element={<RobotView />} />
-        <Route path="robots/edit" element={<RobotEdit />} />
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
 
         {/* we want to protect these routes */}
@@ -105,6 +101,7 @@ function App() {
           <Route path="robots" element={<Home robots={bots} getBots={getBots} deleteHandler={botdeleteHandler}/>} />
           <Route path="robots/create" element={<RobotAdd addHandler = {botAddHandler}/>} />
           <Route path="robots/edit/:id" element={<RobotEdit updateHandler={botUpdateHandler}/>} />
+          <Route path="robots/view" element={<RobotView />} />
         </Route> }
 
         {/* catch all */}
