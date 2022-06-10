@@ -2,13 +2,14 @@ import RequireAuth from './components/RequireAuth';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import useAxiosPrivate from './hooks/useAxiosPrivate';
-import Home from './components/Home';
+import Landing from './components/Landing';
 import Layout from './components/Layout';
 import RobotAdd from './components/RobotAdd';
 import RobotView from './components/RobotView';
 import RobotEdit from './components/RobotEdit';
 import Login from './components/Login';
 import useAuth from './hooks/useAuth';
+import Home from './components/Home';
 
 const ROLES = {
   'User': 2001,
@@ -98,7 +99,7 @@ function App() {
         </Route> */}
 
         { <Route element={<RequireAuth allowedRoles={[ROLES.Manufacturer]} />}>
-          <Route path="robots" element={<Home robots={bots} getBots={getBots} deleteHandler={botdeleteHandler}/>} />
+          <Route path="robots" element={<Home bots={bots} getBots={getBots} deleteHandler={botdeleteHandler}/>} />
           <Route path="robots/create" element={<RobotAdd addHandler = {botAddHandler}/>} />
           <Route path="robots/edit/:id" element={<RobotEdit updateHandler={botUpdateHandler}/>} />
           <Route path="robots/view" element={<RobotView />} />
