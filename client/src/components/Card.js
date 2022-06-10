@@ -2,6 +2,7 @@ import {useState} from "react";
 import "../css/Card.css"
 import 'bootstrap/dist/css/bootstrap.css';
 import RobotDelete from "./RobotDelete";
+import { Link } from 'react-router-dom';
 
 const Card = ({robot}) => {
     const [show, setShow] = useState(false);
@@ -11,9 +12,9 @@ const Card = ({robot}) => {
     return(
         <div className="container">
             <div className="card">
-                <div className="imgBx">
+                <Link to='/robots/view' className="imgBx">
                     <img alt="robot" src={`https://robohash.org/${robot.id}`}/>
-                </div>
+                </Link>
                 <div className="contentBx">
                     <h2 className="robot-name">{robot.name}</h2>
                     <div className="size">
@@ -23,7 +24,7 @@ const Card = ({robot}) => {
                         <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
                     </div>
                     <div className="btn-container">
-                        <a href="/editBot">Edit</a>
+                        <Link to="/robots/edit">Edit</Link>
                         {/* <button onClick={handleShow}>Delete</button> */}
                         <a href="#" className="a-bot" onClick={handleShow}>Delete</a>
                     </div>
