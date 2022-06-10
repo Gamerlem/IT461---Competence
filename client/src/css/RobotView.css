@@ -1,10 +1,15 @@
-.back{
+.view-body{
+    width: 80%;
+}
+
+.backbtn{
     color: #D35483;
     font-size: 1.2em !important;
+    text-decoration: none;
 }
 
 .container-robot{
-    height:100vh;
+    height:60vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -12,7 +17,7 @@
     overflow: hidden;
 }
 
-.col{
+.container-col{
     display: inline-flex;    
 }
 
@@ -41,7 +46,7 @@
 
 .info-container{    
     height: 360px;
-    width: 600px;    
+    width: 800px;    
     border: 1px solid transparent;
     border-radius: 10px;  
     background: linear-gradient(to right, black, black), linear-gradient(to right, #736BFF, #FF649D); 
@@ -58,10 +63,11 @@
     width: 90%;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: justify;
     /* border: 1px solid white; */
 }
 
-.robot-name{
+.view-robot-name{
     color: #736bff;
 }
 
@@ -72,14 +78,39 @@
     margin: 5px 0px;
 }
 
-.txt_1{
+.v_txt_1{
+    color: white;
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 2px;
 }
 
-.txt_2{
+.v_txt_2{
+    color: white;
     font-size: 0.8rem;
     font-weight: 100;
     text-align: justify;
+}
+
+.subtitle-view{
+    text-align: left;
+    padding: 0;
+    margin: 0.5rem 0;
+    color: white;
+}
+
+.vp-updatebtn, .vp-deletebtn{
+    font-size: 0.9em;
+    width: 6rem; 
+    padding: 0;
+    margin: 0 0.2rem;
+    color: white;
+}
+
+.vp-updatebtn{
+    background-color: #736BFF;
+}
+
+.vp-deletebtn{
+    background-color: #F44B89;
 }

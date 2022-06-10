@@ -1,5 +1,4 @@
 import '../css/RobotEdit.css'
-import Header from './Header';
 import { Row, Col, Container, Form } from "react-bootstrap"
 import { Link } from 'react-router-dom';
 
@@ -54,7 +53,7 @@ const RobotEdit = () => {
                     <Row className='mt-4'>
                         <Col lg={12} md={12} sm={12} className="text-right p-0" >
                             <button className="bn37">
-                                <span className="btn-text">Update  <img className="btn-img" src={require('../assets/update.png')} /></span>
+                                <span className="btn-text">Update  <img alt='' className="btn-img" src={require('../assets/update.png')} /></span>
                             </button>
                         </Col>
                     </Row>

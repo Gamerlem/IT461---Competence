@@ -72,9 +72,6 @@ function App() {
       <Route path="/" element={<Layout />}>
         {/* public routes */}
         <Route path="/" element={<Home />} />
-        <Route path="robots/view" element={<RobotView />} />
-        <Route path="robots/edit" element={<RobotEdit />} />
-        {/* <Route path="/" element={<Home />} /> */}
         <Route path="login" element={<Login />} />
 
         {/* we want to protect these routes */}
@@ -92,8 +89,9 @@ function App() {
 
         { <Route element={<RequireAuth allowedRoles={[ROLES.Manufacturer]} />}>
           <Route path="robots" element={<Home />} />
+          <Route path="robots/view" element={<RobotView />} />
           <Route path="robots/create" element={<RobotAdd addHandler = {botAddHandler}/>} />
-          <Route path="/editBot" element={<RobotEdit />} />
+          <Route path="robots/edit" element={<RobotEdit />} />
         </Route> }
 
         {/* catch all */}

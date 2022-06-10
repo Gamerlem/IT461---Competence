@@ -1,5 +1,4 @@
 import '../css/RobotAdd.css'
-import Header from './Header';
 import { Row, Col, Container, Form } from "react-bootstrap"
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
