@@ -98,19 +98,3 @@
     margin: 0.5rem 0;
     color: white;
 }
-
-.vp-updatebtn, .vp-deletebtn{
-    font-size: 0.9em;
-    width: 6rem; 
-    padding: 0;
-    margin: 0 0.2rem;
-    color: white;
-}
-
-.vp-updatebtn{
-    background-color: #736BFF;
-}
-
-.vp-deletebtn{
-    background-color: #F44B89;
-}

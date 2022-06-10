@@ -1,8 +1,11 @@
 import { Row, Col, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import '../css/RobotView.css';
 
 const RobotView = () => {
+    const location = useLocation();
+    const robot = location.state.robot;
+
     return (
         <div>
             <Container fluid className='view-body'>
@@ -21,27 +24,20 @@ const RobotView = () => {
                 <Container fluid className='container-robot'>
                     <span className='container-col'>
                         <div className='img-container'>
-                            <p className='id-txt'><strong>ID#231</strong></p>
-                            <img className='robot-img' src='https://robohash.org/1' alt=''/>
+                            <p className='id-txt'><strong>ID#{robot.id}</strong></p>
+                            <img className='robot-img' src={`https://robohash.org/${robot.id}`} alt=''/>
                         </div>
                         <div className='info-container'>
                             <div className='info-txt'>
-                                <h1 className='view-robot-name'>RoboPrim</h1>
+                                <h1 className='view-robot-name'>{robot.robotname}</h1>
                                 <hr className='underline' />
-                                <p className='v_txt_1'>Manufacturer : Lhora</p>
-                                <p className='v_txt_2'><em>Created : June 06, 2022 | Updated : June 06, 2022</em></p>
+                                <p className='v_txt_2'><em>Created : {robot.created} | Updated : {robot.updated}</em></p>
                                 <p className='v_txt_1'>Capabilities :</p>
-                                <p className='v_txt_2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <p className='v_txt_2'>{robot.capabilities}</p>
                             </div>
                         </div>
                     </span>
                 </Container>
-                <Row>
-                    <Col lg={12} md={12} sm={12} className="text-right" >
-                        <button className="vp-updatebtn">Update</button>
-                        <button className="vp-deletebtn">Delete</button>
-                    </Col>
-                </Row>
             </Container>
         </div>
     );
