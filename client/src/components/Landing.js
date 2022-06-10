@@ -11,6 +11,7 @@ import CardList from "./Cardlist";
 import { Link } from 'react-router-dom';
 
 
+
 const Landing = ({bots, getBots, deleteHandler}) => {
     const paginationHandler = (e) => {
         
@@ -49,7 +50,8 @@ const Landing = ({bots, getBots, deleteHandler}) => {
                             href="#"
                             data-name="previous"
                             onClick={paginationHandler}
-                        > &lsaquo;Previous </a>
+                            className="backker"
+                        >&lt;Back</a>
                         : ''
                     }
                     {bots?.metadata?.links?.next ? 
@@ -57,7 +59,8 @@ const Landing = ({bots, getBots, deleteHandler}) => {
                             href="#"
                             data-name="next"
                             onClick={paginationHandler}
-                        > Next&rsaquo; </a>
+                            className="backker"
+                        > Next&gt; </a>
                         : ''
                     }
                     </>
