@@ -36,6 +36,20 @@
     justify-items: center;
   }
   
+  .Navlink {
+    background-color: #f3ec78;
+    background-image: linear-gradient(to right, #F44B89 0%, #5A54F6 100%);
+    background-size: 100%;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.5s;
+    text-decoration: none;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+  }
+
   .Nav a {
     color: #fff;
     font-size: 0.9rem;
@@ -43,7 +57,7 @@
     transition: 0.5s;
     text-decoration: none;
   }
-  .Nav a:hover {
+  .Nav a:hover, .Navlink:hover {
     transform: scale(1.1);
   }
 

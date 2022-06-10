@@ -14,14 +14,11 @@ const Header = ({logout}) => {
   let navName;
 
   if(auth.user){
-    //console.log(auth);
-    // console.log("true");
     button = <span className="bn31span">Sign out</span>;
-    navName=<a>{auth.user}</a>
+    navName=<a href="/" className="Navlink">{auth.user}</a>
   }else{
-    //console.log("false");
     button = <span className="bn31span">Sign in</span>;
-    navName=<a></a>
+    navName=<a href="/"></a>
   }
 
   useEffect(() => {
@@ -60,7 +57,7 @@ const Header = ({logout}) => {
             unmountOnExit
         >
             <nav className="Nav">
-                <a href="/">Home</a>
+                <a href="/robots">Home</a>
                 <a href="/">About</a>
                 <a href="/">Contact Us</a>
                 {navName}
