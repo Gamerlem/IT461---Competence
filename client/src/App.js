@@ -82,7 +82,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         {/* public routes */}
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Landing />} />
         <Route path="login" element={<Login />} />
 
         {/* we want to protect these routes */}

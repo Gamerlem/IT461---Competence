@@ -146,7 +146,7 @@ const Login = () =>{
         
         </section>
         <div className="robot-pic-container">
-            <img className="robot-pic" src={require("../assets/robot-family.png")}></img>
+            <img className="robot-pic" src={require("../assets/landingpage.png")}></img>
         </div>
         </div>
     );

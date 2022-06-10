@@ -13,8 +13,13 @@
 }
 
 .back{
-    color: #D35483;
+    color: #D35483 !important; 
     font-size: 1.2em !important;
+}
+
+.label{
+    font-size: 1.5em;
+    float: left;
 }
 
 .img-container{

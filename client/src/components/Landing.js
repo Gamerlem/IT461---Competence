@@ -13,13 +13,13 @@ import homePic from '../assets/landingpage.png';
 
 const Landing = () =>{
     return(
-        <Container fluid className="mt-3 w-75"> 
+        <Container fluid className="mt-3 w-75 l-container"> 
             <Row>
                 <div>
-                    <h1 className="text-white fw-bold ">Next-gen Robot for Hire App</h1>
-                    <h2 className="gradient-text fw-bold">for modern productivity</h2>
+                    <h1 className="text-white fw-bold l-h1">Next-gen Robot for Hire App</h1>
+                    <h2 className="gradient-text fw-bold l-h2">for modern productivity</h2>
                     <div className="mt-4">
-                    <p className="text-white">A platform that displays and recommends different robots that are suitable for different jobs as well as various statistics 
+                    <p className="text-white l-p">A platform that displays and recommends different robots that are suitable for different jobs as well as various statistics 
                     that represent the robot's capabilities so that customers can easily choose the best robot for them.</p>
                     </div>
                 </div>
