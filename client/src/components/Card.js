@@ -15,7 +15,7 @@ const Card = ({robot, deleteHandler}) => {
     }
 
     return(
-        <div className="container">
+        <div className="card-holder">
             <div className="card">
                 <Link to='/robots/view' className="imgBx">
                     <img alt="robot" src={`https://robohash.org/${robot.id}`}/>
