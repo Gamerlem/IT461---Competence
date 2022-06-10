@@ -10,6 +10,7 @@ import RobotEdit from './components/RobotEdit';
 import Login from './components/Login';
 import useAuth from './hooks/useAuth';
 import Home from './components/Home';
+import About from './components/About';
 
 const ROLES = {
   'User': 2001,
@@ -84,6 +85,7 @@ function App() {
         {/* public routes */}
         <Route path="/" element={<Landing />} />
         <Route path="login" element={<Login />} />
+        <Route path="about" element={<About />} />
 
         {/* we want to protect these routes */}
         <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
