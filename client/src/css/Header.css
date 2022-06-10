@@ -1,9 +1,9 @@
 .Header {
     min-height: 80px;
-    width: 98vw;
+    /* width: 98vw; */
     display: grid;
     grid-template-areas: "logo nav";
-    margin: auto;
+    /* margin-left: auto; */
   }
   
   .Logo {
@@ -53,13 +53,13 @@
 
   .Nav a {
     color: #fff;
-    font-size: 0.9rem;
+    font-size: 0.9em;
     font-weight: 500;
     transition: 0.5s;
     text-decoration: none;
   }
   .Nav a:hover, .Navlink:hover {
-    transform: scale(1.1);
+    transform: scale(0.9);
   }
 
   .Nav button:active {

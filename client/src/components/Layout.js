@@ -21,6 +21,8 @@ const Layout = () => {
     return (
         <main className="App">
             <Header logout = {logout}/>
+            <span class="dot1"></span> 
+            <span class="dot2"></span>  
             <Outlet />
         </main>
     )

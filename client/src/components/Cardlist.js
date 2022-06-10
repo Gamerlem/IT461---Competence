@@ -5,7 +5,7 @@ import Card from "./Card";
 
 const CardList = ({robots, deleteHandler}) => {
     return(
-        <div className="mt-4 mb-4 card-container">
+        <div className="mt-4 pb-4 card-container">
             {
                 robots.data.map((robot)=>{
                     return (

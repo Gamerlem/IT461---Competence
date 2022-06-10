@@ -26,7 +26,7 @@
 }
 
 .bn37:hover {
-    transform: perspective(1px) scale3d(1.044, 1.044, 1) translateZ(0) !important;
+    transform: perspective(1px) scale3d(1.044, 1.044, 1) translateZ(0);
 }
 
 .add-icon{
@@ -61,4 +61,14 @@
     .btn-text{
         display: none;
     }
+}
+
+.empty{
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
 }

@@ -63,7 +63,9 @@ const Home = ({bots, getBots, deleteHandler}) => {
                         : ''
                     }
                     </>
-                ) : <p>No robots to display</p>
+                ) : <div className="empty">
+                        <p>No robots to display</p>
+                    </div>
             }
         </Container>
     );

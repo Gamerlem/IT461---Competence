@@ -3,9 +3,10 @@
   font-weight: bold;
 }
 
-section{
+/* section{
   margin-top:5%;
-}
+} */
+
 h1, .h1 {
   font-size: 200%;
 }
@@ -24,10 +25,10 @@ left: 0;
   top: 50%;
   width: 20%;
   height: 36px;
-  margin: 5px auto 5px auto;
+  margin: 3px auto 3px auto;
   overflow: hidden;
-  margin-top: 2%;
-  margin-bottom: 2%;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 /* //   .button.r,
@@ -156,7 +157,7 @@ input::placeholder{
 
 }
 .form-group{
-  margin-bottom: 2%;
+  margin-bottom: 0.4em;
 }
 .sign-in{
   padding:0;
@@ -166,11 +167,11 @@ input::placeholder{
   font-weight: 500;
 }
 
-.robot-pic-container{
+/* .robot-pic-container{
   padding-top: 5%;
   padding-bottom:5%;
-}
+} */
 
 .robot-pic{
-  width:50%;
+  width:28%;
 }
