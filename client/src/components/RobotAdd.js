@@ -30,7 +30,7 @@ const RobotAdd = ({addHandler}) => {
             <Container fluid className="w-75 mt-3">
                 <Row className='mb-3'>
                     <Col className="p-0" lg={12} md={12} sm={12}>
-                        <Link to ="/">
+                        <Link to ="/robots">
                             <h1 className="back label">&lt;Back</h1>
                         </Link>
                     </Col>

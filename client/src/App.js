@@ -102,7 +102,7 @@ function App() {
           <Route path="robots" element={<Home bots={bots} getBots={getBots} deleteHandler={botdeleteHandler}/>} />
           <Route path="robots/create" element={<RobotAdd addHandler = {botAddHandler}/>} />
           <Route path="robots/edit/:id" element={<RobotEdit updateHandler={botUpdateHandler}/>} />
-          <Route path="robots/view" element={<RobotView />} />
+          <Route path="robots/view/:id" element={<RobotView />} />
         </Route> }
 
         {/* catch all */}
