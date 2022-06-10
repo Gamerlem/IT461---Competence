@@ -31,7 +31,8 @@ const RobotView = () => {
                             <div className='info-txt'>
                                 <h1 className='view-robot-name'>{robot.robotname}</h1>
                                 <hr className='underline' />
-                                <p className='v_txt_2'><em>Created : {robot.created} | Updated : {robot.updated}</em></p>
+                                <p className='v_txt_2 mb-0'><em>Created : {robot.created}</em></p>
+                                <p className='v_txt_2'><em>Updated : {robot.updated}</em></p>
                                 <p className='v_txt_1'>Capabilities :</p>
                                 <p className='v_txt_2'>{robot.capabilities}</p>
                             </div>
