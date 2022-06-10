@@ -62,7 +62,7 @@ const Header = ({logout}) => {
             <nav className="Nav">
                 {navHome}
                 <a href="/about">About</a>
-                <a href="/">Contact Us</a>
+                <a href="/contact">Contact Us</a>
                 {navName}
                 <button className="bn31" onClick={logout}>
                   {button}

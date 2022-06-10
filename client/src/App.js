@@ -11,6 +11,8 @@ import Login from './components/Login';
 import useAuth from './hooks/useAuth';
 import Home from './components/Home';
 import About from './components/About';
+import Missing from './components/Missing';
+import Contact from './components/Contact';
 
 const ROLES = {
   'User': 2001,
@@ -86,6 +88,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="login" element={<Login />} />
         <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
 
         {/* we want to protect these routes */}
         <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
@@ -108,7 +111,7 @@ function App() {
         </Route> }
 
         {/* catch all */}
-        {/* <Route path="*" element={<Missing />} /> */}
+        <Route path="*" element={<Missing/>} />
       </Route>
     </Routes>
   );
