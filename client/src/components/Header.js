@@ -12,12 +12,15 @@ const Header = ({logout}) => {
 
   let button;
   let navName;
+  let navHome;
 
   if(auth.user){
     button = <span className="bn31span">Sign out</span>;
+    navHome = <a href="/robots">Home</a>;
     navName=<a href="/" className="Navlink">{auth.user}</a>
   }else{
     button = <span className="bn31span">Sign in</span>;
+    navHome = <a href="/">Home</a>;
     navName=<a href="/"></a>
   }
 
@@ -57,7 +60,7 @@ const Header = ({logout}) => {
             unmountOnExit
         >
             <nav className="Nav">
-                <a href="/robots">Home</a>
+                {navHome}
                 <a href="/">About</a>
                 <a href="/">Contact Us</a>
                 {navName}

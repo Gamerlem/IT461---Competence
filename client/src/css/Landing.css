@@ -6,7 +6,9 @@
     -webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
-
+.img-fluid{
+  width: 20em;
+}
 @media screen and (max-width : 1200px)
 {
   .l-h1{

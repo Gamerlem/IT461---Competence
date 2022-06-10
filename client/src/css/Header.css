@@ -1,8 +1,9 @@
 .Header {
     min-height: 80px;
-    width: 100vw;
+    width: 98vw;
     display: grid;
     grid-template-areas: "logo nav";
+    margin: auto;
   }
   
   .Logo {
