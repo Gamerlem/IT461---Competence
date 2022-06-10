@@ -28,5 +28,5 @@ def login(username, password):
             'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)
         }
         token = jwt.encode(payload, current_app.config['SECRET_KEY'], algorithm='HS256')
-        return token
+        return token, user['id']
     return False

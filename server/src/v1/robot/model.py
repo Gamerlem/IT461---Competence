@@ -49,14 +49,17 @@ class RobotModel():
             if 'limit' in filters:
                 limit = int(filters['limit'])
         cols = 'COUNT(*) AS total' if count_only else ','.join(fields)
-        sql = "SELECT " + cols + " FROM robots"
+        if filters['createdby'] is not None:
+            sql = "SELECT " + cols + " FROM robots WHERE createdby = %s"
+        else:
+            sql = "SELECT " + cols + " FROM robots"
         if not count_only:
             sql += " ORDER BY robotname LIMIT " + str(offset) + ", " + str(limit)
         if count_only:
-            row = db.fetchone(sql)
+            row = db.fetchone(sql, filters['createdby'])
             return row['total'] if row else 0
         else:
-            return db.fetchall(sql)
+            return db.fetchall(sql, filters['createdby'])
 
     def update(self, robots):
         if not isinstance(robots, (list, tuple)):

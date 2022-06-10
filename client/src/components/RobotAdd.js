@@ -3,13 +3,15 @@ import Header from './Header';
 import { Row, Col, Container, Form } from "react-bootstrap"
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import useAuth from '../hooks/useAuth';
 
 const RobotAdd = ({addHandler}) => {
-    
+    const {auth, setAuth} = useAuth();
     const [name, setName] = useState('');
     const [cap, setCap] = useState('');
-    const createdby = 1;
+    const createdby = auth.user_id;
     const navigate = useNavigate();
+    
     const formHandler = (e) => {
         e.preventDefault();
         if (!name) {

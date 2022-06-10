@@ -35,7 +35,7 @@ const Card = ({robot, deleteHandler}) => {
                     </div>
                 </div>
             </div>
-            <RobotDelete showModal = {show} hideModal={handleClose} deleteHandler={deleteBot} name = {robot.name}/>
+            <RobotDelete showModal = {show} hideModal={handleClose} deleteHandler={deleteBot} name = {robot.robotname}/>
         </div>
     );
 }

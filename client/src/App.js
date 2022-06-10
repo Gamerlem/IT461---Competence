@@ -8,6 +8,7 @@ import RobotAdd from './components/RobotAdd';
 import RobotView from './components/RobotView';
 import RobotEdit from './components/RobotEdit';
 import Login from './components/Login';
+import useAuth from './hooks/useAuth';
 
 const ROLES = {
   'User': 2001,
@@ -22,12 +23,15 @@ function App() {
   const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
   const location = useLocation();
+  const {auth, setAuth} = useAuth();
+
 
   const getBots = async (url, options = null) => {
+    url+= '&createdby=' + auth.user_id.toString();
     setUrl(url);
     try {
         const response = await axiosPrivate.get(url, options);
-        console.log(response.data);
+        console.log("BOTS: ", response.data);
         setBots(response.data);
     } catch (err) {
         console.error(err);
@@ -36,6 +40,8 @@ function App() {
   }
 
   useEffect(() => {
+    try{
+
       const controller = new AbortController();
       getBots(url, {
           signal: controller.signal
@@ -43,6 +49,11 @@ function App() {
       return () => {
           controller.abort();
       }
+    }
+    catch(err){
+      console.error(err);
+    }
+      
   }, []);
 
   const botAddHandler = async (robot) => {

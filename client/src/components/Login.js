@@ -14,7 +14,7 @@ const Login = () =>{
     const { auth, setAuth, keepLogin } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
+    const from = location.state?.from?.pathname || "/robots";
 
     const userRef = useRef();
     const errRef = useRef();
@@ -52,17 +52,19 @@ const Login = () =>{
                 }
             );
             console.log(typeof(response), response);
-            const accessToken = response?.data?.token;
+            //console.log(response?.data?.token[1])
+            const accessToken = response?.data?.token[0];
+            const user_id = response?.data?.token[1];
             if (!accessToken) {
                 throw new Error('Access token not found.');
             }
-            const userLogin = { user: user, pwd, accessToken };
+            const userLogin = { user: user, pwd, accessToken, user_id };
             setAuth(userLogin);
             keepLogin(userLogin);
             setUser('');
             setPwd('');
             console.log(from, accessToken);
-            navigate(from, { replace: true });
+            navigate('/robots');
         } catch (err) {  
             if (!err?.response) {
                 setErrMsg('No Server Response');

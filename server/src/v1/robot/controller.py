@@ -26,17 +26,30 @@ class RobotController(BaseController):
         if robot is None:
             return make_response(jsonify({"error": "Robot id not found."}), 404)
         return robot
+    
+    def checkCreatedby(self, user_id, filters=None):
+        if filters is not None:
+            filters['createdby'] = user_id
+        else:
+            filters = {"createdby": user_id}
+        robot = self._instance.read(filters)
+        if robot is None:
+            return make_response(jsonify({"error": "User ID not found."}), 404)
+        return robot
 
-    def get(self, robot_id=None):
+    def get(self,  robot_id=None ):
         filters = {}
         if 'fields' in request.args:
             filters['fields'] = request.args['fields'].split(',')
+
         if robot_id is not None:
             robot = self.check(robot_id, filters)
             if not isinstance(robot, dict):
                 return robot
             return jsonify(robot)
-        
+
+        filters['createdby'] = int(request.args['createdby'])
+        print(filters['createdby'])
         filters['offset'] = int(request.args['offset']) if 'offset' in request.args else 0
         filters['limit'] = int(request.args['limit']) if 'limit' in request.args else 5
         robots = self._instance.read(filters)

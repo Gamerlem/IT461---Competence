@@ -51,7 +51,7 @@ const RobotEdit = ({updateHandler}) => {
                                     <div className='img-container'>
                                         <Row>
                                             <Col lg={6} md={6} sm={6}>
-                                                <p className='name-txt'><strong>{robot.roboname}</strong></p>
+                                                <p className='name-txt'><strong>{robot.robotname}</strong></p>
                                                 <p className='date-txt'><strong>{robot.created}</strong></p>
                                             </Col>
                                             <Col lg={6} md={6} sm={6}>
@@ -66,11 +66,11 @@ const RobotEdit = ({updateHandler}) => {
                         <Col className="m-auto text-white form-container" lg={7} md={7} sm={12}>
                             <Form.Group as={Row} className='mb-3'>
                                 <Form.Label className='text-left p-0'>Name</Form.Label>
-                                <Form.Control type="text" name='name' onChange={(e)=>{setName(e.target.value)}}/>
+                                <Form.Control type="text" name='name' defaultValue={robot.robotname} onChange={(e)=>{setName(e.target.value)}} />
                             </Form.Group>
                             <Form.Group as={Row} className='mb-3'>
                                 <Form.Label className='text-left p-0'>Capabilities</Form.Label>
-                                <Form.Control as="textarea" rows={3} name='capabilities' onChange={(e)=>{setCap(e.target.value)}}/>
+                                <Form.Control as="textarea" rows={3} name='capabilities' defaultValue={robot.capabilities} onChange={(e)=>{setCap(e.target.value)}} />
                             </Form.Group>
                         </Col>
                     </Row>
